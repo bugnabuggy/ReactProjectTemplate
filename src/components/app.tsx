@@ -134,7 +134,7 @@ export class App extends React.Component<any, any> {
                                 </label>
                             </span>
                             <div className='col-5'>
-                                <h6 className='footer-content'>awdawd Corp <span style={this.style}>{this.props.data}</span></h6>
+                                <h6 className='footer-content'>bugnabuggy react template <span style={this.style}>{this.props.data}</span></h6>
                             </div>
                         </div>
                     </div>

@@ -35,7 +35,7 @@ export class MainContentComponent extends React.Component<any, any> {
                 </div>
                 <div className='wrapper-footer footer2'>
                     <div className='footer-content2'>
-                        footer css grid + {this.props.location.state ? this.props.location.state.from : null}
+                        bugnabuggy react template  + {this.props.location.state ? this.props.location.state.from : null}
                     </div>
                 </div>
             </div>
