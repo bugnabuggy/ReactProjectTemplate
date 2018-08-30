@@ -1,4 +1,5 @@
-var jsdom = require('jsdom').jsdom;
+var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 var storage = require('../tests/mocks/browserStorage');
 
 import 'raf/polyfill';
@@ -21,9 +22,8 @@ console.error = message => {
   throw new Error(message);
 };
 
-global.document = jsdom('<!doctype html><html><body></body></html>', {
-    url: 'http://localhost'
-});
+const { document } = (new JSDOM('')).window;
+global.document = document;
 
 document.defaultView.localStorage = storage;
 document.defaultView.sessionStorage = storage;

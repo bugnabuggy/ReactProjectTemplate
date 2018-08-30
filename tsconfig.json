@@ -1,19 +1,25 @@
 {
   "compilerOptions": {
+    "baseUrl": "tools/startCompile.ts",
     "outDir": "build/dist",
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6", "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "types": ["node", "mocha"]
+    "types": [
+      "node",
+      "mocha"
+    ],
+    // "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   },
-  "include": [
-    "./**/*.ts"
-  ],
   "exclude": [
     "node_modules",
     "build",
@@ -23,11 +29,3 @@
     "jest"
   ]
 }
-/*
-"forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-"strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
-*/
