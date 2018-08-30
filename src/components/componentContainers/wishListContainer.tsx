@@ -2,21 +2,32 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { WishaList } from '../wishaList';
+import { WishList } from '../wishaList';
 
 import { getRecords, getSpecialty, sendNewUser } from '../../actions/wishListAction';
 
-class WishListContainer extends React.Component<any, any> {
+interface IWishListContainerProps {
+  wishList: Array<any>;
+  specialty: Array<any>;
+
+  getRecords: () => void;
+  getSpecialty: () => void;
+  sendNewUser: (value: any) => void;
+}
+
+class WishListContainer extends React.Component<IWishListContainerProps, any> {
   render() {
     return (
-      <WishaList 
-        wishList={this.props.wishList}
-        specialty={this.props.specialty}
+      <div>
+        <WishList
+          wishList={this.props.wishList}
+          specialty={this.props.specialty}
 
-        getRecordsAction={this.props.getRecords} 
-        getSpecialtyAction={this.props.getSpecialty}
-        sendNewUserAction={this.props.sendNewUser}
-      />
+          getRecordsAction={this.props.getRecords}
+          getSpecialtyAction={this.props.getSpecialty}
+          sendNewUserAction={this.props.sendNewUser}
+        />
+      </div>
     );
   }
 }

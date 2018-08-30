@@ -17,7 +17,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 app.get('*', function (req, res) {
-  console.log(`${req.url}_f`);
+  // console.log(`${req.url}_f`);
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 

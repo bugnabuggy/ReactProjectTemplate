@@ -8,7 +8,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { getRoutes } from './routers/getRoutes';
-import { rootReducers } from './reducers/rootReducer';
+import createReducer from './reducers/rootReducer';
 import { initialState } from './reducers/initialState';
 
 const history = createBrowserHistory();
@@ -16,7 +16,7 @@ const history = createBrowserHistory();
 const middleware = routerMiddleware(history);
 
 const store = createStore(
-  rootReducers,
+  createReducer({}),
   initialState,
   composeWithDevTools(
     applyMiddleware(

@@ -1,12 +1,12 @@
 import { initialState } from './initialState';
 
-export function appReducer(state = initialState, action: any) {
+export function appReducer(state = initialState.login, action: any) {
   let cons = "USER";
   let stateObject = {
-    [cons]: newState(state, action)
+    [cons]: newState,
   };
   
-  return stateObject.hasOwnProperty(action.type) ? stateObject[action.type] : state;
+  return stateObject.hasOwnProperty(action.type) ? stateObject[action.type](state, action) : state;
 }
 
 function newState(state: any, action: any) {

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Table, Button, FormControl, FormGroup, ControlLabel, Form } from 'react-bootstrap';
-import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import * as toastr from 'toastr';
+import axios from 'axios';
 
-export class WishaList extends React.Component<any, any> {
+import AddNewUserForm from './forms/formNewUser';
+
+export class WishList extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
 
@@ -51,6 +53,16 @@ export class WishaList extends React.Component<any, any> {
     return false;
   }
 
+  awsLambda = () => {
+    axios.get('https://59fr6bx8xi.execute-api.ap-northeast-1.amazonaws.com/handle-API/handle')
+      .then((response: any) => {
+        console.log(response);
+      })
+      .catch((err:any) => {
+        console.error(err);
+      });
+  }
+
   renderOptionsSelect = () => {
     const options: Array<any> = this.props.specialty.map((list: any) => {
       return (<option key={uuidv4()} value={list.id}>{list.specialty}</option>);
@@ -80,7 +92,11 @@ export class WishaList extends React.Component<any, any> {
       <div className="table-margin">
         <div className="form-container">
           <div className="form-style">
-            <Form onSubmit={this.handleSubmit} horizontal>
+            {/* <AddNewUserForm 
+              propNamespace='fsdfasdf'
+              specialty={this.props.specialty}
+            /> */}
+            {/* <Form onSubmit={this.handleSubmit} horizontal>
               <FormGroup>
                 <ControlLabel>Name *</ControlLabel>{' '}
                 <FormControl
@@ -138,7 +154,13 @@ export class WishaList extends React.Component<any, any> {
               >
                 Loading
           </Button>
-            </Form>
+            </Form> */}
+            <Button
+                bsStyle="primary"
+              onClick={this.awsLambda}
+            >
+                AWS Lambda
+            </Button>
           </div>
         </div>
         <Table responsive>

@@ -1,14 +1,11 @@
-// import { initialState } from './initialState';
-const initialState: object = {
-  users: [],
-  specialty: [],
-}
+import { initialState } from './initialState';
+import { WISH_LIST } from '../DTO/constantsForReducer';
 
-export function wishListReducer(state = initialState, action: any) {
+export function wishListReducer(state = initialState.wishList, action: any) {
   let stateObject: any = {
-    'SET_VISIBILITY_FILTER': newState(state, action),
-    'GET_SPECIALTY': getSpecialty(state, action),
-    'SEND_NEW_USER': newState(state, action),
+    [WISH_LIST.SET_VISIBILITY_FILTER]: newState(state, action),
+    [WISH_LIST.GET_SPECIALTY]: getSpecialty(state, action),
+    [WISH_LIST.SEND_NEW_USER]: newState(state, action),
   };
   
   return stateObject.hasOwnProperty(action.type) ? stateObject[action.type] : state;
